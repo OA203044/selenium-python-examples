@@ -15,13 +15,13 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 driver.get ('https://my.te.eg/#/home/signin')
 print(driver.title)
 
-time.sleep(5)
+time.sleep(3)
 driver.find_element_by_id('MobileNumberID').send_keys('0238728551')
 time.sleep(1)
 driver.find_element_by_id ('PasswordID').send_keys('mni0AMHK')
 time.sleep(1)
 driver.find_element_by_id('singInBtn').click()
-time.sleep(5)
+time.sleep(3)
 
 print(driver.title)
 # login successful
