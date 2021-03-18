@@ -11,6 +11,6 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 
 # Now you can start using Selenium
 driver.get('http://www.google.com');
-print(driver.page_source)
+print(driver.title)
 
 driver.quit();
