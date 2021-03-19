@@ -50,6 +50,7 @@ now = datetime.now()
 difference = now-date_formatted
 #الايام المتبقية
 days=30-difference.days
+# معدل الاستهلاك ... المعدل الطبيعي 250/30 = 8.33 جيجا في اليوم
 rate=GB/days
 print("%.2f" % rate)
 
