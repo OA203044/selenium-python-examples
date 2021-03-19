@@ -1,7 +1,7 @@
 import selenium
 from selenium import webdriver
 import time
-from datetime import datetime, timezone
+from datetime import datetime
 import os
 
 chrome_options = webdriver.ChromeOptions()
@@ -42,8 +42,8 @@ date_text= driver.find_element_by_css_selector('div.col-sm-6').text
 # تحويل النص لتاريخ
 date_formatted = datetime.strptime(date_text,"%Y-%m-%d")
 #get current date and time
-today = date.today()
-difference = today-date_formatted
+now = datetime.now()
+difference = now-date_formatted
 #الايام المتبقية
 days=30-difference.days
 print(days)
