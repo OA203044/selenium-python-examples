@@ -32,7 +32,8 @@ driver.find_element_by_css_selector('button.btn.btn-primary').click()
 time.sleep(3)
 print(driver.title)
 
-driver.find_element_by_xpath("//*[text()='يوم']"))
+#driver.find_element_by_xpath("//*[text()='يوم']"))
+print(driver.find_element_by_css_selector('div.col-sm-6')
 
 
 
