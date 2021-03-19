@@ -50,7 +50,8 @@ now = datetime.now()
 difference = now-date_formatted
 #الايام المتبقية
 days=30-difference.days
-print(GB/days)
+rate=GB/days
+print("%.2f" % rate)
 
 
 
