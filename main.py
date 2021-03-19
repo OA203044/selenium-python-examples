@@ -28,7 +28,7 @@ time.sleep(3)
 # login successful
 print(driver.title)
 array=driver.find_elements_by_css_selector('tspan')
-print(array[3].get_attribute("value"))
+print(array[3].text)
 time.sleep(3)
 
 #اضغط ع تفاصيل الاستهلاك
