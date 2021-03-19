@@ -40,4 +40,4 @@ print(driver.find_element_by_css_selector('div.col-sm-6')
 
 
 
-driver.quit();
+driver.quit()
