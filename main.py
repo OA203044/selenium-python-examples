@@ -56,6 +56,7 @@ while(1):
   rate=GB/days
   print("%.2f" % rate)
   time.sleep(10)
+  driver.close()
 
 
 
