@@ -24,11 +24,13 @@ time.sleep(1)
 driver.find_element_by_id('singInBtn').click()
 time.sleep(3)
 
-print(driver.title)
+
 # login successful
+print(driver.title)
+print(driver.find_element_by_css_selector('#text').text)
 time.sleep(3)
 
-#driver.find_element_by_class_name('block.prepaid')
+#اضغط ع تفاصيل الاستهلاك
 driver.find_element_by_css_selector('button.btn.btn-primary').click()
 time.sleep(3)
 print(driver.title)
