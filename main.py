@@ -54,6 +54,9 @@ while 2>1:
   # معدل الاستهلاك ... المعدل الطبيعي 250/30 = 8.33 جيجا في اليوم
   rate=GB/days
   print("%.2f" % rate)
+  driver.close()
+  time.sleep(5)
+
   driver.get ('https://github.com')
   print(driver.title)
   time.sleep(5)
