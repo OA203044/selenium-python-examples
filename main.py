@@ -1,5 +1,6 @@
 import selenium
 from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
 import time
 from datetime import datetime
 import os
@@ -56,7 +57,11 @@ while 2>1:
   print("%.2f" % rate)
   time.sleep(5)
   
-  driver.find_element_by_xpath('/html/body/ecare-app/div/header/div[2]/div/div/div[2]/nav/ul/li[5]/div/div/div/div[1]/div/div[2]/div/a').click()
+  element_to_hover_over = driver.find_element_by_css_selector('li.nav__list__item.dropdown.dropdown--mega.-start200')
+  hover = ActionChains(driver).move_to_element(element_to_hover_over)
+  hover.perform()
+  driver.find_element_by_css_selector('a.btn.inline-block.l-full').click()
+  
   time.sleep(3)
   print(driver.title)
   time.sleep(5)
