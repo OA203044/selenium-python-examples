@@ -68,7 +68,7 @@ server.login("omarashraf02030@gmail.com", "mni0AMHK")
 
 rate = str(round(rate, 2))
 print(rate)
-date = date_formatted + datetime.timedelta(days=30)
+date = date_formatted + timedelta(30)
 print(str(date))
 
 rate_str = '#Rate: ' + str(rate) + ' GB'
