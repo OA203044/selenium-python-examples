@@ -56,7 +56,7 @@ rate=GB/days
 print("%.2f" % rate)
 time.sleep(5)
 
-print(driver.title)
-time.sleep(1)
 
-driver.quit()
+
+
+#driver.quit()
