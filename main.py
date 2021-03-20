@@ -60,9 +60,9 @@ while(True):
   # Sending email
 
   server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-  #server.ehlo() 
-  #server.starttls()
-  #server.ehlo() 
+  server.ehlo() 
+  server.starttls()
+  server.ehlo() 
 
   server.login("omarashraf02030@gmail.com", "mni0AMHK")
 
