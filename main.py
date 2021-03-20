@@ -56,10 +56,12 @@ rate=GB/days
 print("%.2f" % rate)
 time.sleep(5)
 
-element_to_hover_over = driver.find_element_by_css_selector('li.nav__list__item.dropdown.dropdown--mega.-start200')
-hover = ActionChains(driver).move_to_element(element_to_hover_over)
-hover.perform()
-driver.find_element_by_css_selector('a.btn.inline-block.l-full').click()
+
+arr22=driver.find_elements_by_css_selector('a.btn.inline-block.l-full')
+print(arr22[0].text)
+print(arr22[1].text)
+print(arr22[2].text)
+
 
 time.sleep(3)
 print(driver.title)
