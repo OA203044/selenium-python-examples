@@ -16,8 +16,8 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 
 
 # Now you can start using Selenium
-  config.WeLogin()
-  config.SendMail()
+config.WeLogin()
+config.SendMail()
 
   
  
