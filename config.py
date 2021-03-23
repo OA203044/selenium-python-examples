@@ -80,6 +80,7 @@ def WeLogin():
   rate = GB/days
   #print("%.2f" % rate)
   time.sleep(5)
+  driver.quit()
     
 ##############################
   
