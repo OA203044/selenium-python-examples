@@ -38,6 +38,11 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 ############### Functions ###############
 
 def WeLogin():
+  global rate
+  global days
+  global date_formatted
+  global GB
+  
   driver.get ('https://my.te.eg/#/home/signin')
   print(driver.title)
 
@@ -55,7 +60,6 @@ def WeLogin():
   time.sleep(3)
   # getting remainning GB
   array=driver.find_elements_by_css_selector('tspan')
-  global GB
   GB=float(array[3].text)
   time.sleep(4)
 
@@ -67,16 +71,13 @@ def WeLogin():
   # تاريخ الشحن ك نص
   date_text= driver.find_element_by_css_selector('div.col-sm-6').text
   # تحويل النص لتاريخ
-  global date_formatted
   date_formatted = datetime.strptime(date_text,"%Y-%m-%d")
   #get current date and time
   now = datetime.now()
   difference = now-date_formatted
   #الايام المتبقية
-  global days
   days=30-difference.days
   # معدل الاستهلاك ... المعدل الطبيعي 250/30 = 8.33 جيجا في اليوم
-  global rate
   rate = GB/days
   #print("%.2f" % rate)
   time.sleep(5)
@@ -85,11 +86,15 @@ def WeLogin():
 ##############################
   
 def SendMail():  
-  WeLogin()
+  global rate
+  global days
+  global date_formatted
+  global GB
+
+
   server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
   # you need to trun on 2FA on the sender email, and then get an app password (goole that if u don't know ehat i'm taking about)
   server.login(os.environ.get("heroku_var_sndrEmail"), os.environ.get("heroku_var_2FApass"))
-    
   print(rate)
   rate = str(round(rate, 2))
   print(rate)
