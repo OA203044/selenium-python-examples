@@ -16,6 +16,15 @@ https://github.com/heroku/heroku-buildpack-google-chrome
 https://github.com/heroku/heroku-buildpack-chromedriver
 '''
 
+
+###############
+import selenium
+from selenium import webdriver
+import time
+from datetime import datetime, timedelta
+import os
+import smtplib
+
 ############### Functions ###############
 
 def WeLogin():
