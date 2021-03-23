@@ -1,3 +1,4 @@
+import config
 from config import WeLogin, SendMail, wakeDyno
 
 chrome_options = webdriver.ChromeOptions()
