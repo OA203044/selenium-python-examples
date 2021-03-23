@@ -13,8 +13,8 @@ scheduler1.every(28).minutes.do(wakeDyno)
 scheduler2.every(2).days.at("04:25").do(job)
 
 while True:
-  schedule1.run_pending()
-  schedule2.run_pending()
+  scheduler1.run_pending()
+  scheduler2.run_pending()
   time.sleep(1)
 
   
