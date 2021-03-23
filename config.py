@@ -25,6 +25,8 @@ from datetime import datetime, timedelta
 import os
 import smtplib
 
+global GB,date_formatted,rate,days
+
 
 # Selenium stuff (optimized for heroku)
 chrome_options = webdriver.ChromeOptions()
@@ -77,12 +79,12 @@ def WeLogin():
   #print("%.2f" % rate)
   time.sleep(5)
   
-  return GB,date_formatted,rate,days # just to be able to use those variables in other functions
+  #return GB,date_formatted,rate,days # just to be able to use those variables in other functions
   
 ##############################
   
 def SendMail():
-  GB,date_formatted,rate,days = WeLogin() 
+  #GB,date_formatted,rate,days = WeLogin() 
   
   server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
   # you need to trun on 2FA on the sender email, and then get an app password (goole that if u don't know ehat i'm taking about)
