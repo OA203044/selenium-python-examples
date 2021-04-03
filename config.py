@@ -90,6 +90,8 @@ def SendMail():
   global days
   global date_formatted
   global GB
+  global acounter
+  acounter=0
 
   server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
   # you need to trun on 2FA on the sender email, and then get an app password (goole that if u don't know ehat i'm taking about)
@@ -115,8 +117,12 @@ def SendMail():
 
 # if dyno receives no web traffic in a 30-minute period, it will sleep! so we will run this func. every 29 min or so
 def wakeDyno(): 
+  global acounter
+  acounter+=1
+  
   driver.get ('https://docs.python.org/3')
   print('didn\'t sleep yet!')
+  print('# about '+acounter*28/60+ ' hours has passed!')
     
 ##############################
 
