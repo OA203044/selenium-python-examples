@@ -25,6 +25,9 @@ from datetime import datetime, timedelta
 import os
 import smtplib
 
+global acounter
+acounter=0
+
 
 # Selenium stuff (optimized for heroku)
 chrome_options = webdriver.ChromeOptions()
