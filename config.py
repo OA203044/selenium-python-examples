@@ -125,7 +125,7 @@ def wakeDyno():
   
   driver.get ('https://docs.python.org/3')
   print('didn\'t sleep yet!')
-  print('# about '+acounter*28/60+ ' hours has passed!')
+  print('# about '+str(round(acounter*28/60,2))+ ' hours has passed!')
     
 ##############################
 
