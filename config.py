@@ -56,7 +56,7 @@ def WeLogin():
     print("numOK")
     time.sleep(1)
   except NoSuchElementException as e:
-    print e
+    print(e)
   driver.find_element_by_id ('password').send_keys(os.environ.get("heroku_var_WEpass"))
   print("passOK")
   time.sleep(1)
