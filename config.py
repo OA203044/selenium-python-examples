@@ -75,12 +75,16 @@ def WeLogin():
   # تاريخ الشحن ك نص
   tt = driver.find_element_by_class_name('mr-auto').text
   date_text = tt[14:24]
+  print(date_text)
   
   # تحويل النص لتاريخ
   date_formatted = datetime.strptime(date_text,"%d-%m-%Y")
+  print(date_formatted)
   #get current date and time
   now = datetime.now()
+  print(now)
   difference = now-date_formatted
+  print(difference)
   #الايام المتبقية
   days=30-difference.days
   # معدل الاستهلاك ... المعدل الطبيعي 140/30 = 4.66 جيجا في اليوم
