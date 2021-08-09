@@ -65,6 +65,7 @@ def WeLogin():
   ff = driver.find_element_by_class_name('usage-details').text
   usedGB = float(ff[:len(ff)-5]) #extract the number from text
   GB = 140 - usedGB
+  GB = str(round(GB, 2))
   time.sleep(1)
 
   #اضغط ع تفاصيل الاستهلاك
@@ -76,7 +77,9 @@ def WeLogin():
   tt = driver.find_element_by_class_name('mr-auto').text
   date_text = tt[14:24]
   
+  days_text = tt[26:len(tt)-15]
   # تحويل النص لتاريخ
+  '''
   date_formatted = datetime.strptime(date_text,"%d-%m-%Y")
   #get current date and time
   now = datetime.now()
@@ -85,9 +88,10 @@ def WeLogin():
   #الايام المتبقية
   days=30-difference.days
   # معدل الاستهلاك ... المعدل الطبيعي 140/30 = 4.66 جيجا في اليوم
+  '''
+  days = int(days_text)
   rate = GB/days
   print(days)
-  print(rate)
   #print("%.2f" % rate)
   time.sleep(3)
   driver.quit()
@@ -111,7 +115,7 @@ def SendMail():
   date = date.strftime("%d/%m/%Y")
   rate_str = '#Rate: ' + str(rate) + ' GB'
   days_str = '#Remaining: ' +str(GB)+ ' GB & '+ str(days) + ' days'
-  date_str = '#Ends at: ' + str(date)
+  date_str = '#Ends at: ' + str(date_text)
 
   subject = 'WE Internet Consumption'
   body = rate_str + '\n\n' + days_str + '\n\n' + date_str
