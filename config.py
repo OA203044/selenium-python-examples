@@ -111,8 +111,8 @@ def SendMail():
   server.login(os.environ.get("heroku_var_sndrEmail"), os.environ.get("heroku_var_2FApass"))
   rate = str(round(rate, 2))
   print(rate)
-  date = date_formatted + timedelta(30)
-  date = date.strftime("%d/%m/%Y")
+  #date = date_formatted + timedelta(30)
+  #date = date.strftime("%d/%m/%Y")
   rate_str = '#Rate: ' + str(rate) + ' GB'
   days_str = '#Remaining: ' +str(GB)+ ' GB & '+ str(days) + ' days'
   date_str = '#Ends at: ' + str(date_text)
