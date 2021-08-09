@@ -79,7 +79,7 @@ def WeLogin():
   date_text = tt[14:24]
   
   # تحويل النص لتاريخ
-  date_formatted = datetime.strptime(date_text,"%Y-%m-%d")
+  date_formatted = datetime.strptime(date_text,"%d-%m-%Y")
   #get current date and time
   now = datetime.now()
   difference = now-date_formatted
