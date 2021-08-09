@@ -44,7 +44,7 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 def WeLogin():
   global rate
   global days
-  global date_formatted
+  global date_text
   global GB
   
   driver.get ('https://my.te.eg/user/login')
