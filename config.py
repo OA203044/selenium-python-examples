@@ -51,6 +51,7 @@ def WeLogin():
   print(driver.title)
 
   time.sleep(6)
+  print(driver.title)
   try:
     driver.find_element_by_id('serviceNo').send_keys(os.environ.get("heroku_var_WENum"))
     print("numOK")
