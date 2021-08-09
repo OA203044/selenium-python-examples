@@ -8,7 +8,7 @@ def job():
   SendMail()
 
   
- WeLogin() 
+WeLogin() 
   
   
 scheduler1 = schedule.Scheduler()
