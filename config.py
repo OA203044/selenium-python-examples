@@ -65,7 +65,7 @@ def WeLogin():
   ff = driver.find_element_by_class_name('usage-details').text
   usedGB = float(ff[:len(ff)-5]) #extract the number from text
   GB = 140 - usedGB
-  GB = str(round(GB, 2))
+  GB = float(round(GB, 2))
   time.sleep(1)
 
   #اضغط ع تفاصيل الاستهلاك
