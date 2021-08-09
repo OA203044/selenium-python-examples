@@ -48,21 +48,15 @@ def WeLogin():
   global GB
   
   driver.get ('https://my.te.eg/user/login')
-  print(driver.title)
-
-  time.sleep(6)
-  print(driver.title)
-  try:
-    driver.find_element_by_id('serviceNo').send_keys(os.environ.get("heroku_var_WENum"))
-    print("numOK")
-    time.sleep(1)
-  except NoSuchElementException as e:
-    print(e)
-  driver.find_element_by_id ('password').send_keys(os.environ.get("heroku_var_WEpass"))
-  print("passOK")
-  time.sleep(1)
-  driver.find_element_by_id('singInBtn').click()
   time.sleep(5)
+  print(driver.title)
+  driver.find_element_by_class_name('p-inputmask').send_keys(os.environ.get("heroku_var_WENum"))
+  time.sleep(1)
+  driver.find_element_by_id ('password').send_keys(os.environ.get("heroku_var_WEpass"))
+  time.sleep(1)
+  arr=driver.find_elements_by_css_selector('span.p-button-label')
+  arr[1].click()
+  time.sleep(3)
 
 
   # login successful
