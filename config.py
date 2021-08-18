@@ -27,7 +27,12 @@ import os
 import smtplib
 
 global acounter
-acounter=0
+global rate
+global days
+global date_text
+global GB
+global remaining_normal
+global extraGB
 
 
 # Selenium stuff (optimized for heroku)
@@ -42,10 +47,7 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 ############### Functions ###############
 
 def WeLogin():
-  global rate
-  global days
-  global date_text
-  global GB
+  
   
   driver.get ('https://my.te.eg/user/login')
   time.sleep(5)
@@ -64,7 +66,7 @@ def WeLogin():
   # getting remainning GB
   ff = driver.find_element_by_class_name('usage-details').text
   usedGB = float(ff[:len(ff)-5]) #extract the number from text
-  GB = 140 - usedGB
+  GB = 140 - usedGB #Remaining
   GB = float(round(GB, 2))
   time.sleep(1)
 
@@ -78,6 +80,7 @@ def WeLogin():
   date_text = tt[14:24]
   
   days_text = tt[26:len(tt)-15]
+  
   # تحويل النص لتاريخ
   '''
   date_formatted = datetime.strptime(date_text,"%d-%m-%Y")
@@ -90,6 +93,8 @@ def WeLogin():
   # معدل الاستهلاك ... المعدل الطبيعي 140/30 = 4.66 جيجا في اليوم
   '''
   days = int(days_text)
+  remaining_normal = days*4.6667 # remaining days * normal rate
+  extraGB = GB  - remaining_normal
   rate = GB/days
   print(days)
   #print("%.2f" % rate)
@@ -99,11 +104,7 @@ def WeLogin():
 ##############################
   
 def SendMail():  
-  global rate
-  global days
-  global date_formatted
-  global GB
-  global acounter
+  
   acounter=0
 
   server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
@@ -113,12 +114,13 @@ def SendMail():
   print(rate)
   #date = date_formatted + timedelta(30)
   #date = date.strftime("%d/%m/%Y")
+  extraGB_str = '#Extra GB: ' + str(extraGB) + ' GB'
   rate_str = '#Rate: ' + str(rate) + ' GB'
   days_str = '#Remaining: ' +str(GB)+ ' GB & '+ str(days) + ' days'
   date_str = '#Ends at: ' + str(date_text)
 
   subject = 'WE Internet Consumption'
-  body = rate_str + '\n\n' + days_str + '\n\n' + date_str
+  body = extraGB_str + '\n\n' + rate_str + '\n\n' + days_str + '\n\n' + date_str
   msg = f'Subject: {subject}\n\n{body}'
 
   server.sendmail(os.environ.get("heroku_var_sndrEmail"), os.environ.get("heroku_var_rcvrEmail"), msg)
